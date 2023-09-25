@@ -86,7 +86,7 @@ public class EventoRepository implements DAORepository<Evento> {
             results = this.get("u.id = :id", map);
         }catch(Exception e){
             e.printStackTrace();
-            LOG.error(LoggerUtils.log("Error al obtener resultados de búsqueda: [%s]", jpql.toString()));
+            LOG.error(LoggerUtils.log("Error al obtener resultados de bÃºsqueda: [%s]", jpql.toString()));
         }finally {
             t.commit();
             session.close();
@@ -117,7 +117,7 @@ public class EventoRepository implements DAORepository<Evento> {
             resultados.addAll(q.getResultList());
         }catch(Exception e){
             e.printStackTrace();
-            LOG.error(LoggerUtils.log("Error al obtener resultados de búsqueda: [%s]", jpql.toString()));
+            LOG.error(LoggerUtils.log("Error al obtener resultados de bÃºsqueda: [%s]", jpql.toString()));
         }finally {
             t.commit();
             session.close();

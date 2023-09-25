@@ -55,9 +55,8 @@ public class LoginBean implements Serializable{
             session.setAttribute("user", user);
             return "login-success";
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Credenciales no v·lidas", "no valido"));         
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Credenciales no v√°lidas", "no valido"));         
             return "";
         }
     }
-    
 }

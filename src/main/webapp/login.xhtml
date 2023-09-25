@@ -1,3 +1,4 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition template="resources/layouts/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -8,30 +9,32 @@
         Iniciar sesion
     </ui:define>
     <ui:define name="contenido">
-        <div class="flex align-items-center">
-            <h:form id="login-form">
-                <p:card class="login-form grid grid-nogutter">
-                    <div class="col-12">
-                        <h:outputLabel value="INICIAR SESION"/>
+        <div class="login-form-container">
+            <h:form>
+                <p:card class="login-form w-28rem">               
+                    <div class="text-center mb-16">
+                        <h:outputLabel class="text-4xl" value="Sistema de Venta de Boletos"/>
                     </div>
                     <div>
-                        <div class="col-6">
-                            <h:outputLabel for="username" value="Usuario:"/>
+                        <div class="mt-4">
+                            <p:outputLabel for="username" value="Usuario:"/>
                         </div>
-                        <div class="col-6">
-                            <p:inputText id="username" value="#{loginBean.username}" />
-                        </div>
+                        <span class="ui-input-icon-left w-full mt-2">
+                            <i class="pi pi-user text-blue-500" />
+                            <p:inputText class="w-full" id="username" value="#{loginBean.username}"/>
+                        </span>
                     </div>
                     <div>
-                        <div class="col-6">
-                            <h:outputLabel for="password" value="Contrasena:"/>
+                        <div class="mt-4">
+                            <p:outputLabel for="password" value="Contraseña:"/>
                         </div>
-                        <div class="col-6">
-                            <p:password id="password" value="#{loginBean.password}" />
-                        </div>
+                        <span class="ui-input-icon-left ui-input-icon-right w-full mt-2">
+                            <i class="pi pi-key text-blue-500" />
+                            <p:inputText type="password" class="w-full" id="password" value="#{loginBean.password}"/>
+                        </span>
                     </div>
-                    <div class="col-12">
-                        <p:commandButton value="Iniciar Sesion" icon="pi pi-check" iconPos="right" action="#{loginBean.login()}"/>
+                    <div class="text-center mt-4">
+                        <p:commandButton value="Iniciar Sesión" action="#{loginBean.login()}"/>
                     </div>                  
                 </p:card>
             </h:form>
