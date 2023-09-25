@@ -1,17 +1,19 @@
 body {
     background: linear-gradient(to bottom, #00529f, #663399);
     background-repeat: no-repeat;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.login-form {
-    width: 400px;
-    margin: 0 auto;
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 20px;
+*{
+    box-sizing: border-box;
+}
+
+.login-form-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
 }
 
 
