@@ -6,7 +6,6 @@ package igf.grupo03.controllers;
 
 import igf.grupo03.entities.Evento;
 import igf.grupo03.repository.EventoRepository;
-import jakarta.annotation.PostConstruct;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
@@ -50,8 +49,4 @@ public class EventosBean implements Serializable{
         this.eventos = eventos;
     }
     
-    public void test(Evento evento){
-        System.out.println(evento + "xd");
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "test", evento.getNombre()));
-    }
 }

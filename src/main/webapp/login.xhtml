@@ -24,14 +24,14 @@
                     </div>
                     <div>
                         <div class="col-6">
-                            <h:outputLabel for="password" value="Contrasena"/>
+                            <h:outputLabel for="password" value="Contrasena:"/>
                         </div>
                         <div class="col-6">
                             <p:password id="password" value="#{loginBean.password}" />
                         </div>
                     </div>
                     <div class="col-12">
-                        <p:button value="Iniciar sesion" outcome="eventos" />
+                        <p:commandButton value="Iniciar Sesion" icon="pi pi-check" iconPos="right" action="#{loginBean.login()}"/>
                     </div>                  
                 </p:card>
             </h:form>

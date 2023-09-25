@@ -4,8 +4,16 @@
  */
 package igf.grupo03.controllers;
 
+import igf.grupo03.entities.Usuario;
+import igf.grupo03.services.UsuarioService;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import jakarta.servlet.http.HttpSession;
 import java.io.Serializable;
 
 /**
@@ -13,9 +21,12 @@ import java.io.Serializable;
  * @author Leo
  */
 @Named
-@ViewScoped
+@RequestScoped
 public class LoginBean implements Serializable{
 
+    @Inject
+    UsuarioService usuarioService;
+    
     private String username;
     private String password;
 
@@ -35,8 +46,18 @@ public class LoginBean implements Serializable{
         this.password = password;
     }
     
-    public void login(){
-        System.out.println(String.format("username %s - password %s", username, password));
+    public String login(){
+        
+        Usuario user = this.usuarioService.getUserById(this.username);
+        System.out.println("user ->" + user);
+        if (user != null && user.getPassword().equals(this.password)) {
+            HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
+            session.setAttribute("user", user);
+            return "login-success";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Credenciales no válidas", "no valido"));         
+            return "";
+        }
     }
     
 }
