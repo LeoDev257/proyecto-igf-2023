@@ -5,8 +5,11 @@
 package igf.grupo03.repository;
 
 import igf.grupo03.entities.Evento;
+import igf.grupo03.entities.Usuario;
 import jakarta.inject.Inject;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  *
@@ -17,18 +20,23 @@ public class main {
     
     public static void main(String... args) {
         EventoRepository eventoRepository = new EventoRepository();
-        Evento e = new Evento();
-        e.setId(5L);
-        e.setEstado(10);
-        e.setNombre("Evento " + e.getId());
-        e.setFechaInicio(LocalDateTime.now());
-        e.setFechaFin(LocalDateTime.now().plusHours(6));
-        eventoRepository.persist(e);
-        e.setId(6L);
-        e.setEstado(10);
-        e.setNombre("Evento " + e.getId());
-        e.setFechaInicio(LocalDateTime.now());
-        e.setFechaFin(LocalDateTime.now().plusHours(4));
-        eventoRepository.persist(e);
+//        for (int i = 2; i < 9; i++) {
+//            Evento e = new Evento();
+//            e.setId(Long.valueOf(i));
+//            e.setEstado(10);
+//            e.setNombre("Evento " + e.getId());
+//            e.setDescripcion("Descripcion de evento " + e.getId());
+//            e.setFecha(LocalDate.now().plusDays(e.getId()));
+//            e.setHorainicio(LocalTime.now());
+//            e.setHorafin(LocalTime.now().plusHours(e.getId()));
+//            eventoRepository.update(e);
+//        }
+
+//        Usuario u = new Usuario();
+//        u.setUsername("admin");
+//        u.setPassword("admin");
+//        u.setFechacrea(LocalDateTime.now().minusDays(4));
+//        u.setTipo(10);
+//        new UsuarioRepository().update(u);
     }
 }

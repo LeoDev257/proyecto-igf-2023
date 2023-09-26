@@ -1,6 +1,9 @@
-body {
+html {
     background: linear-gradient(to bottom, #00529f, #663399);
     background-repeat: no-repeat;
+}
+
+body {
     min-height: 100vh;
     margin: 0;
     padding: 0;

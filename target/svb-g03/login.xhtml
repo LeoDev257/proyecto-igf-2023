@@ -10,7 +10,7 @@
     </ui:define>
     <ui:define name="contenido">
         <div class="login-form-container">
-            <h:form>
+            <h:form id="login-form">
                 <p:card class="login-form w-28rem">               
                     <div class="text-center mb-16">
                         <h:outputLabel class="text-4xl" value="Sistema de Venta de Boletos"/>
@@ -33,6 +33,10 @@
                             <p:inputText type="password" class="w-full" id="password" value="#{loginBean.password}"/>
                         </span>
                     </div>
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <p:message for="login-form"/>
                     <div class="text-center mt-4">
                         <p:commandButton value="Iniciar Sesión" action="#{loginBean.login()}"/>
                     </div>                  

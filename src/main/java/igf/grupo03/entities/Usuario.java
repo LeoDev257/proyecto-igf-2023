@@ -9,6 +9,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -24,6 +25,12 @@ public class Usuario implements Serializable{
     
     @Column(name = "password")
     private String password;
+    
+    @Column(name = "fechacrea")
+    private LocalDateTime fechacrea;
+    
+    @Column(name = "tipo")
+    private Integer tipo;
 
     public String getUsername() {
         return username;
@@ -41,11 +48,29 @@ public class Usuario implements Serializable{
         this.password = password;
     }
 
+    public LocalDateTime getFechacrea() {
+        return fechacrea;
+    }
+
+    public void setFechacrea(LocalDateTime fechacrea) {
+        this.fechacrea = fechacrea;
+    }
+
+    public Integer getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 43 * hash + Objects.hashCode(this.username);
-        hash = 43 * hash + Objects.hashCode(this.password);
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.username);
+        hash = 47 * hash + Objects.hashCode(this.password);
+        hash = 47 * hash + Objects.hashCode(this.fechacrea);
+        hash = 47 * hash + Objects.hashCode(this.tipo);
         return hash;
     }
 
@@ -64,12 +89,15 @@ public class Usuario implements Serializable{
         if (!Objects.equals(this.username, other.username)) {
             return false;
         }
-        return Objects.equals(this.password, other.password);
+        if (!Objects.equals(this.password, other.password)) {
+            return false;
+        }
+        if (!Objects.equals(this.fechacrea, other.fechacrea)) {
+            return false;
+        }
+        return Objects.equals(this.tipo, other.tipo);
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "username=" + username + ", password=" + password + '}';
-    }
+    
         
 }

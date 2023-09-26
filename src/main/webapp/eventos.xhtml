@@ -22,20 +22,32 @@
         </style>
     </ui:define>
     <ui:define name="contenido">
-
-        <p:growl id="growl" showDetail="true" />
         <div class="container">
-            <div class="grid grid-nogutter mt-2 w-8 justify-content-center fadein animation-ease-in animation-duration-500">
+            <div class="grid mt-2 w-8 justify-content-center fadein animation-ease-in animation-duration-500">
 
                 <ui:repeat value="#{eventosBean.eventos}" var="evento">
 
 
-                    <p:card class="h-25rem w-25rem mx-2 mt-2 mb-0">
+                    <p:card class="h-26rem w-25rem mx-2 mt-2 mb-0 bg-gray-800">
                         <f:facet name="header">
-                            #{evento.nombre}
+                            <img class="h-12rem" alt="user header" src="resources/images/demo-image.avif"/>
+                        </f:facet>
+                        <f:facet name="title">
+                            <p:outputLabel class="text-white text-2xl" value="#{evento.nombre}"/>
                         </f:facet>
                         <f:facet name="subtitle">
-                            #{evento.fechaInicio}
+                            <p:outputLabel class="text-white" value="#{evento.descripcion}"/>
+                            <h:panelGrid columns="2" class="w-full mt-2">
+                                <p:badge value="#{eventosBean.formatDate(evento.fecha)}" severity="info" styleClass="mr-2"></p:badge>
+                                <p:badge value="#{eventosBean.formatHour(evento.horainicio)} - #{eventosBean.formatHour(evento.horafin)}" severity="info" styleClass="mr-2"></p:badge>
+                            </h:panelGrid>
+                            <p:divider align="center">
+
+                            </p:divider>
+                            <div class="mt-2 flex justify-content-center">
+                                <p:button class="mx-auto" styleClass="ui-button-warning" value="Comprar" icon="pi pi-shopping-cart"/>
+                            </div>
+
                         </f:facet>                   
                     </p:card>
 

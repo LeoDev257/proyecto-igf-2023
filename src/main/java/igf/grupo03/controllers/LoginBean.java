@@ -15,6 +15,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.servlet.http.HttpSession;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -47,16 +48,26 @@ public class LoginBean implements Serializable{
     }
     
     public String login(){
-        
-        Usuario user = this.usuarioService.getUserById(this.username);
-        System.out.println("user ->" + user);
-        if (user != null && user.getPassword().equals(this.password)) {
-            HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true);
-            session.setAttribute("user", user);
-            return "login-success";
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Credenciales no válidas", "no valido"));         
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        if(Objects.isNull(this.username) || this.username.isBlank()){
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Debe ingresar un usuario"));
             return "";
         }
+        if(Objects.isNull(this.password) || this.password.isBlank()){
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Debe ingresar una contraseña"));
+            return "";
+        }
+        Usuario user = this.usuarioService.getUserById(this.username);
+        if(Objects.isNull(user)){
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", String.format("No se encuentra el usuario %s", this.username)));
+            return "";
+        }
+        if(!Objects.equals(user.getPassword(), this.password)){
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", String.format("Contraseña incorrecta para el usuario %s", this.username)));
+            return "";
+        }
+        HttpSession session = (HttpSession)facesContext.getExternalContext().getSession(true);
+        session.setAttribute("user", user);
+        return "login-success";     
     }
 }

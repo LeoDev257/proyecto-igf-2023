@@ -12,8 +12,13 @@ import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -47,6 +52,16 @@ public class EventosBean implements Serializable{
 
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
+    }
+    
+    public String formatDate(LocalDate time){
+        DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return time.format(dtFormatter);
+    }
+    
+    public String formatHour(LocalTime time){
+        DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("HH:mm a");
+        return time.format(dtFormatter);
     }
     
 }
