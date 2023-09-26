@@ -1,4 +1,4 @@
-package igf.grupo03.controllers;
+package igf.grupo01.controllers;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;

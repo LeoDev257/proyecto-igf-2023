@@ -10,7 +10,7 @@
                 <property name="connection.driver_class">org.postgresql.Driver</property>
                 <property name="show_sql">true</property>
 
-                <mapping class="igf.grupo03.entities.Usuario" />
-                <mapping class="igf.grupo03.entities.Evento" />
+                <mapping class="igf.grupo01.entities.Usuario" />
+                <mapping class="igf.grupo01.entities.Evento" />
         </session-factory>
 </hibernate-configuration> 

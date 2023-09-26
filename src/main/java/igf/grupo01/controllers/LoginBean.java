@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package igf.grupo03.controllers;
+package igf.grupo01.controllers;
 
-import igf.grupo03.entities.Usuario;
-import igf.grupo03.services.UsuarioService;
+import igf.grupo01.entities.Usuario;
+import igf.grupo01.services.UsuarioService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.application.FacesMessage;

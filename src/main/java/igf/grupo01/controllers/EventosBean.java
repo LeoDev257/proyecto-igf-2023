@@ -2,23 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package igf.grupo03.controllers;
+package igf.grupo01.controllers;
 
-import igf.grupo03.entities.Evento;
-import igf.grupo03.repository.EventoRepository;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
+import igf.grupo01.entities.Evento;
+import igf.grupo01.repository.EventoRepository;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  *
