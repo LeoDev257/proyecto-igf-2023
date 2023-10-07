@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="../resources/layouts/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:f="jakarta.faces.core"
+                xmlns:ui="jakarta.faces.facelets"                         
+                xmlns:p="http://primefaces.org/ui">
+    <ui:define name="titulo">
+        Agregar Evento
+    </ui:define>
+    <ui:define name="estilos">
+        <style>
+            .fecha{
+                width: 100px;
+                border-color: green;
+            }
+            .unresizable{
+                resize: none;
+            }
+        </style>       
+    </ui:define>
+    <ui:define name="contenido">
+        <div class="login-form-container">
+            <h:form id="add-evento-form">
+                <p:card class="login-form w-28rem">               
+                    <div class="text-center mb-16">
+                        <h:outputLabel class="text-4xl" value="Agregar nuevo evento"/>
+                    </div>
+                    <div>
+                        <div class="mt-4">
+                            <p:outputLabel for="@next" value="Nombre Evento"/>
+                        </div>
+                        <p:inputText class="w-full" value="#{agregarEventoBean.nombre}"/>
+                        
+
+                    </div>
+                    <div>
+                        <div class="mt-4">
+                            <p:outputLabel for="@next" value="Descripción del evento"/>
+                        </div>
+                        <p:inputTextarea styleClass="unresizable" id="descripcion" rows="3" class="w-full unresizable" maxlength="255"
+                                         autoResize="false"
+                                         value="#{agregarEventoBean.descripcion}"/>
+
+                    </div>
+                    <div class="ui-fluid grid formgrid">
+                        <div class="col-12">
+                            <div class="mt-4">
+                                <p:outputLabel for="fecha" value="Fecha del evento"/>
+                            </div>
+                            <div class="">
+                                <p:datePicker styleClass="fecha" class="w-full fecha" id="fecha" value="#{agregarEventoBean.fecha}"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mt-4">
+                                <p:outputLabel for="horaInicio" value="Hora de inicio"/>
+                            </div>
+                            <div class="">
+                                <p:datePicker class="w-full" id="horaInicio" pattern="HH:mm" value="#{agregarEventoBean.horaInicio}"/>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mt-4">
+                                <p:outputLabel for="horaFin" value="Hora de finalización"/>
+                            </div>
+                            <div class="">
+                                <p:datePicker class="w-full" id="horaFin" pattern="HH:mm" value="#{agregarEventoBean.horaFin}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <p:message for="@previous"/>
+                    <p:messages id="guardar-evento-error" closable="true">
+                        <p:autoUpdate/>
+                    </p:messages>
+                    <div class="text-center mt-4">
+                        <p:commandButton class="border-green-600 bg-green-400" value="Guardar" action="#{agregarEventoBean.agregarNuevoEvento()}"/>
+                    </div>                  
+                </p:card>
+            </h:form>   
+        </div>
+    </ui:define>
+</ui:composition>

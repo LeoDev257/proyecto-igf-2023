@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="resources/layouts/template.xhtml"
+<ui:composition template="../resources/layouts/template.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="jakarta.faces.html"
                 xmlns:f="jakarta.faces.core"
@@ -22,6 +22,10 @@
         </style>
     </ui:define>
     <ui:define name="contenido">
+        <h:form>
+            <p:commandButton class="mx-auto" value="Agregar nuevo evento" action="#{eventosBean.agregarNuevoEvento()}">
+            </p:commandButton>    
+        </h:form>
         <div class="container">
             <div class="grid mt-2 w-8 justify-content-center fadein animation-ease-in animation-duration-500">
 
@@ -30,7 +34,7 @@
 
                     <p:card class="h-26rem w-25rem mx-2 mt-2 mb-0 bg-gray-800">
                         <f:facet name="header">
-                            <img class="h-12rem" alt="user header" src="resources/images/demo-image.avif"/>
+                            <img class="h-12rem" alt="user header" src="../resources/images/demo-image.avif"/>
                         </f:facet>
                         <f:facet name="title">
                             <p:outputLabel class="text-white text-2xl" value="#{evento.nombre}"/>

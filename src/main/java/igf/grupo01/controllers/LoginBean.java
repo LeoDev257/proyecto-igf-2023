@@ -69,5 +69,6 @@ public class LoginBean implements Serializable{
         HttpSession session = (HttpSession)facesContext.getExternalContext().getSession(true);
         session.setAttribute("user", user);
         return "login-success";     
+        //return "eventos";
     }
 }

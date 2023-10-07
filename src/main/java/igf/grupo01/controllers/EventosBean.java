@@ -15,6 +15,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.primefaces.PrimeFaces;
+import org.primefaces.model.DialogFrameworkOptions;
 
 /**
  *
@@ -31,7 +33,6 @@ public class EventosBean implements Serializable{
     
     public void init(){
         eventos = eventoRepository.get(null, null);
-        System.out.println(eventos);
     }
 
     public EventoRepository getEventoRepository() {
@@ -58,6 +59,17 @@ public class EventosBean implements Serializable{
     public String formatHour(LocalTime time){
         DateTimeFormatter dtFormatter = DateTimeFormatter.ofPattern("HH:mm a");
         return time.format(dtFormatter);
+    }
+    
+    public String agregarNuevoEvento(){
+        DialogFrameworkOptions options = DialogFrameworkOptions.builder()
+            .resizable(false)
+            .draggable(false)
+            .modal(false)
+            .build();
+        //PrimeFaces.current().dialog().openDynamic("agregarEvento", options, null);
+        //return "agregar-nuevo-evento"
+        return "agregarEvento";
     }
     
 }
